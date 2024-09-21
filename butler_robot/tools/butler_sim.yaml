@@ -1,0 +1,14 @@
+session_name: Butler Robot
+
+suppress_history: false
+start_directory: ../../..
+windows:
+
+- window_name: Robot setup
+  layout: main-vertical
+  shell_command_before:
+    - source devel/setup.bash
+  panes:
+    - roslaunch husky_gazebo husky_playpen.launch
+    - sleep 10; roslaunch husky_viz view_robot.launch
+    - sleep 15; rosrun butler_robot butler_robot.py
